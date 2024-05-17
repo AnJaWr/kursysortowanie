@@ -102,9 +102,9 @@ var jsonData = [
       "Level":"A1",
       "Type":"O",
           "Start": "04.09.2024",
-          "Name": "START!(A1) poniedziałki środy 17:30-20:40",
+          "Name": "START!(A1) poniedziałki wtorki środy czwartki piątki 9:00-11.30",
           "Days": 1,
-          "Hours": 2,
+          "Hours": 1,
           "Lnumber": 60,
           "Price": 2190,
           "Form": 3
