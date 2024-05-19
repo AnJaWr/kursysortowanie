@@ -451,7 +451,6 @@ const courses = [
 		"Tryb": "standardowy"
 	}
 ];
-
 function resetLevels() {
     document.getElementById('levelOptions').innerHTML = '';
 }
