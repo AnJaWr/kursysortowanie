@@ -525,6 +525,16 @@ function resetCourseList() {
     document.getElementById('courseList').innerHTML = '';
     resetCourseDetails();
 }
+var levelOptionsHeader = document.getElementById('levelOptionsHeader');
+var trybOptionsHeader = document.getElementById('trybOptionsHeader');
+var poraOptionsHeader= document.getElementById('poraOptionsHeader');
+var daysOptionsHeader= document.getElementById('daysOptionsHeader');
+var listOptionsHeader= document.getElementById('listOptionsHeader');
+
+
+
+
+
 
 function handleTypeChange(event) {
     resetLevels();
@@ -533,12 +543,14 @@ function handleTypeChange(event) {
     resetDays();
     resetCourseList();
     resetCourseDetails();
+	
     const selectedType = event.target.value;
     const levels = [...new Set(courses.filter(course => course.Type === selectedType).map(course => course.Level))];
 
     const levelOptions = levels.map(level => `<label><input type="radio" name="level" value="${level}" onchange="handleLevelChange(event)">${level}</label>`).join('');
-
-    document.getElementById('levelOptions').innerHTML = levelOptions;
+	document.getElementById('levelOptions').innerHTML = levelOptions;
+	
+	levelOptionsHeader.style.display = 'block';
 }
 
 function handleLevelChange(event) {
@@ -547,6 +559,7 @@ function handleLevelChange(event) {
     resetDays();
     resetCourseList();
     resetCourseDetails();
+	trybOptionsHeader.style.display = 'block';
     const selectedLevel = event.target.value;
     const typeElement = document.querySelector('input[name="courseType"]:checked');
     const selectedType = typeElement ? typeElement.value : null;
@@ -576,12 +589,14 @@ function handleTrybChange(event) {
     const poraOptions = poras.map(pora => `<label><input type="radio" name="pora" value="${pora}" onchange="handlePoraChange(event)">${pora}</label>`).join('');
 
     document.getElementById('poraOptions').innerHTML = poraOptions;
+	poraOptionsHeader.style.display = 'block';
 }
 
 function handlePoraChange(event) {
     resetDays();
     resetCourseList();
     resetCourseDetails();
+	daysOptionsHeader.style.display = 'block';
     const selectedPora = event.target.value;
     const levelElement = document.querySelector('input[name="level"]:checked');
     const typeElement = document.querySelector('input[name="courseType"]:checked');
@@ -610,6 +625,7 @@ function handlePoraChange(event) {
 function handleDaysChange(event) {
     resetCourseList();
     resetCourseDetails();
+	listOptionsHeader.style.display = 'block';
     const selectedDays = event.target.value;
     const levelElement = document.querySelector('input[name="level"]:checked');
     const typeElement = document.querySelector('input[name="courseType"]:checked');
@@ -681,4 +697,7 @@ function displayCourseDetails(courseStart, courseName) { // Dodanie parametrów 
         <p><strong>Cena:</strong> ${course.Price} zł</p>
     `;
     document.getElementById('courseDetails').innerHTML = courseDetailsHTML;
+	const additionalFields = document.getElementById('additionalFields');
+	additionalFields.style.display = 'block';
+
 }
