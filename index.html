@@ -1,106 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
-    <form id="courseForm">
-        <h5>Typ kursu</h5>
-        <fieldset>
-          <label><input type="radio" name="courseType" value="O"> Ogólny</label><br>
-          <label><input type="radio" name="courseType" value="K"> Konwersacje</label><br>
-          <label><input type="radio" name="courseType" value="N"> Norskprove</label><br>
-        </fieldset>
-      
-        <h5>Poziom kursu</h5>
-        <fieldset>
-          <label><input type="radio" name="courseLevel" value="A1"> A1</label><br>
-          <label><input type="radio" name="courseLevel" value="A2"> A2</label><br>
-          <label><input type="radio" name="courseLevel" value="B1-1"> B1-1</label><br>
-          <label><input type="radio" name="courseLevel" value="B1-2"> B1-2</label><br>
-          <label><input type="radio" name="courseLevel" value="B2-1"> B2-1</label><br>
-          <label><input type="radio" name="courseLevel" value="B2-2"> B2-2</label><br>
-          <label><input type="radio" name="courseLevel" value="C1-1"> C1-1</label><br>
-          <label><input type="radio" name="courseLevel" value="C1-2"> C1-2</label><br>
-        </fieldset>
-      
-        <h5>Tryb kursu</h5>
-        <fieldset>
-          <label><input type="radio" name="courseMode" value="1"> Standardowy</label><br>
-          <label><input type="radio" name="courseMode" value="2"> Intensywny</label><br>
-          <label><input type="radio" name="courseMode" value="3"> Superintensywny</label><br>
-        </fieldset>
-      
-        <h5>Pora kursu</h5>
-        <fieldset>
-          <label><input type="radio" name="courseTime" value="1"> poranny</label><br>
-          <label><input type="radio" name="courseTime" value="2"> wieczorny</label><br>
 
-        </fieldset>
+    <div id="typ">
+        <label>
+            <input type="radio" name="courseType" value="O" onchange="handleTypeChange(event)"> Kurs ogólny
+        </label>
+        <label>
+            <input type="radio" name="courseType" value="K" onchange="handleTypeChange(event)"> Kurs konwersacyjny
+        </label>
+        <label>
+            <input type="radio" name="courseType" value="N" onchange="handleTypeChange(event)"> Kurs Norskprove
+        </label>
+    </div>
+    <h4 id="levelOptionsHeader" style="display:none">Wybierz poziom kursu</h4>
+    <h4 id="oneLevel" class="one level" style="display:none">Jest tylko jeden poziom kursów</h4>
+    <div id="level"> </div>
 
-        <h5>Dni kursu</h5>
-        <fieldset>
-          <label><input type="radio" name="courseDay" value="1"> Poniedziałek i środa</label><br>
-          <label><input type="radio" name="courseDay" value="2"> Wtorek i czwartek</label><br>
-          <label><input type="radio" name="courseDay" value="3"> Piątek</label><br>
-          <label><input type="radio" name="courseDay" value="4"> Sobota</label><br>
-        </fieldset>
+    <h4 id="trybOptionsHeader" style="display:none">Wybierz tryb kursu</h4>
+    <h4 id="oneTryb" class="one tryb" style="display:none">Kursy na tym poziomie odbywają się obecnie tylko w trybie
+    </h4>
+    <div id="tryb"> </div>
 
-        <button type="button" onclick="checkHandler()">Sprawdź kurs</button>
+    <h4 id="poraOptionsHeader" style="display:none">Wybierz porę kursu</h4>
+    <h4 id="onePora" class="one pora" style="display:none">Kursy na tym poziomie odbywają się obecnie tylko wieczorami
+    </h4>
+    <div id="pora"> </div>
 
-        <select id="courseList">
-        
-          <!-- Tutaj zostaną wyświetlone pozostałe opcje kursów -->
-        </select>
-      
-        <div id="additionalFields" style="display: none;">
-          <h5>Wybierz kurs z listy i uzupełnij dane, aby się zapisać</h5>
-          <!-- Dodatkowe pola -->
-          <label for="firstName">Imię:</label>
-          <input type="text" id="firstName" name="firstName"><br>
-      
-          <label for="lastName">Nazwisko:</label>
-          <input type="text" id="lastName" name="lastName"><br>
-      
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email"><br>
-      
-          <label for="phone">Telefon:</label>
-          <input type="text" id="phone" name="phone"><br>
-      <h5>Czy chcesz, aby wystawiono fakturę? </h5>
-          <input type="radio" id="invoiceYes" name="invoice" value="tak">
-          <label for="invoiceYes">Tak</label>
-          <input type="radio" id="invoiceNo" name="invoice" value="nie">
-          <label for="invoiceNo">Nie</label><br>
-      
-          <label for="invoiceData">Dane do faktury:</label><br>
-          <textarea id="invoiceData" name="invoiceData" rows="4" cols="50"></textarea><br>
-          <h5>Czy jesteś studentem </h5>
-          <input type="radio" id="studentYes" name="student" value="tak">
-          <label for="studentYes">Tak</label>
-          <input type="radio" id="studentNo" name="student" value="nie">
-          <label for="studentNo">Nie</label><br>
-      
-          <label for="remarks">Uwagi:</label><br>
-          <textarea id="remarks" name="remarks" rows="4" cols="50"></textarea><br>
+    <h4 id="listOptionsHeader" style="display:none">Wybierz swój kurs, wypełnij formularz, zapisz się</h4>
+    <div id="courseList"> </div>
 
-          <input type="checkbox" id="marketingConsent" name="marketingConsent" value="tak">
-    <label for="marketingConsent">Zgoda na przetwarzanie danych w celach marketingowych</label><br>
+    <div id="onlyOne" class="hidden"></div>
+    <div id="courseDetails"></div>
+    <div id="additionalFields" style="display: none;">
+        <h2>Uzupełnij dane </h2>
+        <!-- Dodatkowe pola -->
+        <label for="firstName">Imię:</label>
+        <input type="text" id="firstName" name="firstName"><br>
 
-    <input type="checkbox" id="contractConsent" name="contractConsent" value="tak">
-    <label for="contractConsent">Zgoda na przetwarzanie danych w celach umownych</label><br>
+        <label for="lastName">Nazwisko:</label>
+        <input type="text" id="lastName" name="lastName"><br>
 
-    <input type="checkbox" id="salesConsent" name="salesConsent" value="tak">
-    <label for="salesConsent">Zgoda na przetwarzanie danych w celach handlowych</label><br>
-        </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
 
-    
-      
-      
-      </form>
-<script src="main.js"></script>
+        <label for="phone">Telefon:</label>
+        <input type="text" id="phone" name="phone"><br>
+
+        <h5>Czy chcesz, aby wystawiono fakturę? </h5>
+        <input type="radio" id="invoiceYes" name="invoice" value="tak">
+        <label for="invoiceYes">Tak</label>
+        <input type="radio" id="invoiceNo" name="invoice" value="nie">
+        <label for="invoiceNo">Nie</label><br>
+
+        <label for="invoiceData">Nazwa Firmy</label><br>
+        <input type="text" id="invoiceData" name="invoiceData"><br>
+
+        <label for="NIP">NIP</label><br>
+        <input type="number" id="NIP" name="NIP" /><br>
+        <label for="adresFirmy">Uwagi:</label><br>
+        <textarea id="adresFirmy" name="adresFirmy" rows="4" cols="50"></textarea><br>
+
+
+        <h5>Czy jesteś studentem </h5>
+        <input type="radio" id="studentYes" name="student" value="tak">
+        <label for="studentYes">Tak</label>
+        <input type="radio" id="studentNo" name="student" value="nie">
+        <label for="studentNo">Nie</label><br>
+
+        <label for="remarks">Uwagi:</label><br>
+        <textarea id="remarks" name="remarks" rows="4" cols="50"></textarea><br>
+
+        <input type="checkbox" id="marketingConsent" name="marketingConsent" value="tak">
+        <label for="marketingConsent">Zgoda na przetwarzanie danych w celach marketingowych</label><br>
+
+        <input type="checkbox" id="contractConsent" name="contractConsent" value="tak">
+        <label for="contractConsent">Zgoda na przetwarzanie danych w celach umownych</label><br>
+
+        <input type="checkbox" id="salesConsent" name="salesConsent" value="tak">
+        <label for="salesConsent">Zgoda na przetwarzanie danych w celach handlowych</label><br>
+    </div>
+
+    <script src="new.js"></script>
 </body>
+
 </html>

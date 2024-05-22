@@ -16,7 +16,7 @@ const courses = [
 		"Type": "O",
 		"Start": "02.10.2024",
 		"End": "11.12.2024",
-		"Name": "START!(A1) poniedziałki środy 19:30-20:45",
+		"Name": "START!(A1) poniedziałki środy 17:30-20:45 INTENSYWNY",
 		"Days": "1",
 		"Pora": "wieczorny",
 		"Lnumber": 60,
@@ -28,7 +28,7 @@ const courses = [
 		"Type": "O",
 		"Start": "02.09.2024",
 		"End": "11.12.2024",
-		"Name": "START!(A1) poniedziałki środy 19:30-20:45",
+		"Name": "START!(A1) poniedziałki środy 17:30-20:45 INTENSYWNY",
 		"Days": "1",
 		"Pora": "wieczorny",
 		"Lnumber": 60,
@@ -64,24 +64,24 @@ const courses = [
 		"Type": "O",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
-		"Name": "START!(A1) poniedziałki wtorki środy czwartki piątki 10:30-9:00",
+		"Name": "START!(A1) poniedziałki wtorki środy czwartki piątki 10:30-9:00 SUPERINTENSYWNY",
 		"Days": "1",
 		"Pora": "poranny",
 		"Lnumber": 60,
 		"Price": 2190,
-		"Tryb": "superintensywny"
+		"Tryb": "intensywny"
 	},
 	{
 		"Level": "A1",
 		"Type": "O",
 		"Start": "04.10.2024",
 		"End": "11.12.2024",
-		"Name": "START!(A1) poniedziałki wtorki środy czwartki piątki 10:30-9:00",
+		"Name": "START!(A1) poniedziałki wtorki środy czwartki piątki 10:30-9:00 SUPERINTENSYWNY",
 		"Days": "1",
 		"Pora": "poranny",
 		"Lnumber": 60,
 		"Price": 2190,
-		"Tryb": "superintensywny"
+		"Tryb": "intensywny"
 	},
 	{
 		"Level": "A1",
@@ -148,12 +148,12 @@ const courses = [
 		"Type": "O",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
-		"Name": "W GÓRĘ poniedziałki wtorki środy czwartki piątki 10:30-9:00",
+		"Name": "W GÓRĘ poniedziałki wtorki środy czwartki piątki 10:30-9:00 SUPERINTENSYWNY",
 		"Days": "1",
 		"Pora": "poranny",
 		"Lnumber": 60,
 		"Price": 2190,
-		"Tryb": "superintensywny"
+		"Tryb": "intensywny"
 	},
 	{
 		"Level": "A2",
@@ -244,19 +244,19 @@ const courses = [
 		"Type": "O",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
-		"Name": "b1-1 poniedziałki wtorki środy czwartki piątki 10:30-9:00",
+		"Name": "b1-1 poniedziałki wtorki środy czwartki piątki 10:30-9:00 SUPERINTENSYWNY",
 		"Days": "1",
 		"Pora": "poranny",
 		"Lnumber": 60,
 		"Price": 2190,
-		"Tryb": "superintensywny"
+		"Tryb": "intensywny"
 	},
 	{
 		"Level": "B1-1",
 		"Type": "O",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
-		"Name": "b1-2 poniedziałki środy   17:30-20:30",
+		"Name": "b1-2 poniedziałki środy 17:30-20:30 INTENSYWNY",
 		"Days": "1",
 		"Pora": "wieczorny",
 		"Lnumber": 60,
@@ -340,19 +340,7 @@ const courses = [
 		"Type": "O",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
-		"Name": "b1-2 poniedziałki wtorki środy czwartki piątki 10:30-9:00",
-		"Days": "1",
-		"Pora": "poranny",
-		"Lnumber": 60,
-		"Price": 2190,
-		"Tryb": "superintensywny"
-	},
-	{
-		"Level": "B1-2",
-		"Type": "O",
-		"Start": "04.09.2024",
-		"End": "11.12.2024",
-		"Name": "b1-2 poniedziałki  środy 10:30-12:00",
+		"Name": "b1-2 poniedziałki wtorki środy czwartki piątki 10:30-9:00 SUPERINTENSYWNY",
 		"Days": "1",
 		"Pora": "poranny",
 		"Lnumber": 60,
@@ -364,7 +352,19 @@ const courses = [
 		"Type": "O",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
-		"Name": "b1-2  wtorki  czwartki  17:30-20:40",
+		"Name": "b1-2 poniedziałki  środy 10:30-12:00 INTENSYWNY",
+		"Days": "1",
+		"Pora": "poranny",
+		"Lnumber": 60,
+		"Price": 2190,
+		"Tryb": "intensywny"
+	},
+	{
+		"Level": "B1-2",
+		"Type": "O",
+		"Start": "04.09.2024",
+		"End": "11.12.2024",
+		"Name": "b1-2  wtorki  czwartki  17:30-20:40 INTENSYWNY",
 		"Days": "1",
 		"Pora": "wieczorny",
 		"Lnumber": 60,
@@ -491,33 +491,28 @@ const courses = [
 		"Price": 2190,
 		"Tryb": "standardowy"
 	}
-]
+];
+
 function resetCourseDetails() {
     document.getElementById('courseDetails').innerHTML = '';
 }
 
 // Funkcje resetujące inne opcje i listy kursów
 function resetLevels() {
-    document.getElementById('levelOptions').innerHTML = '';
-    additionalFields.style.display = 'none';
+    document.getElementById('level').innerHTML = '';
+    document.getElementById('additionalFields').style.display = 'none';
     resetCourseDetails();
 }
 
 function resetTrybs() {
-    document.getElementById('trybOptions').innerHTML = '';
-    additionalFields.style.display = 'none';
+    document.getElementById('tryb').innerHTML = '';
+    document.getElementById('additionalFields').style.display = 'none';
     resetCourseDetails();
 }
 
 function resetPora() {
-    document.getElementById('poraOptions').innerHTML = '';
-    additionalFields.style.display = 'none';
-    resetCourseDetails();
-}
-
-function resetDays() {
-    document.getElementById('daysOptions').innerHTML = '';
-    additionalFields.style.display = 'none';
+    document.getElementById('pora').innerHTML = '';
+    document.getElementById('additionalFields').style.display = 'none';
     resetCourseDetails();
 }
 
@@ -525,120 +520,85 @@ function resetCourseList() {
     document.getElementById('courseList').innerHTML = '';
     resetCourseDetails();
 }
-var levelOptionsHeader = document.getElementById('levelOptionsHeader');
-var trybOptionsHeader = document.getElementById('trybOptionsHeader');
-var poraOptionsHeader= document.getElementById('poraOptionsHeader');
-var daysOptionsHeader= document.getElementById('daysOptionsHeader');
-var listOptionsHeader= document.getElementById('listOptionsHeader');
-
-
-
-
-
 
 function handleTypeChange(event) {
     resetLevels();
     resetTrybs();
     resetPora();
-    resetDays();
     resetCourseList();
     resetCourseDetails();
-	
+    
     const selectedType = event.target.value;
     const levels = [...new Set(courses.filter(course => course.Type === selectedType).map(course => course.Level))];
 
     const levelOptions = levels.map(level => `<label><input type="radio" name="level" value="${level}" onchange="handleLevelChange(event)">${level}</label>`).join('');
-	document.getElementById('levelOptions').innerHTML = levelOptions;
-	
-	levelOptionsHeader.style.display = 'block';
+    document.getElementById('level').innerHTML = levelOptions;
+    document.getElementById('levelOptionsHeader').style.display = 'block';
+
+    if (levels.length === 1) {
+        const singleLevelInput = document.querySelector('input[name="level"]');
+        singleLevelInput.checked = true;
+        handleLevelChange({ target: singleLevelInput });
+    }
 }
 
 function handleLevelChange(event) {
     resetTrybs();
     resetPora();
-    resetDays();
     resetCourseList();
     resetCourseDetails();
-	trybOptionsHeader.style.display = 'block';
+
     const selectedLevel = event.target.value;
-    const typeElement = document.querySelector('input[name="courseType"]:checked');
-    const selectedType = typeElement ? typeElement.value : null;
+    const selectedType = document.querySelector('input[name="courseType"]:checked').value;
+    const trybs = [...new Set(courses.filter(course => course.Level === selectedLevel && course.Type === selectedType).map(course => course.Tryb))];
 
-    const filteredCourses = courses.filter(course => course.Type === selectedType && course.Level === selectedLevel);
-    const tryby = [...new Set(filteredCourses.map(course => course.Tryb))];
+    const trybOptions = trybs.map(tryb => `<label><input type="radio" name="courseTryb" value="${tryb}" onchange="handleTrybChange(event)"> ${tryb}</label>`).join('');
+    document.getElementById('tryb').innerHTML = trybOptions;
+    document.getElementById('trybOptionsHeader').style.display = trybs.length > 0 ? 'block' : 'none';
 
-    const trybOptions = tryby.map(tryb => `<label><input type="radio" name="tryb" value="${tryb}" onchange="handleTrybChange(event)">${tryb}</label>`).join('');
-
-    document.getElementById('trybOptions').innerHTML = trybOptions;
+    if (trybs.length === 1) {
+        const singleTrybInput = document.querySelector('input[name="courseTryb"]');
+        singleTrybInput.checked = true;
+        handleTrybChange({ target: singleTrybInput });
+    }
 }
 
 function handleTrybChange(event) {
     resetPora();
-    resetDays();
     resetCourseList();
     resetCourseDetails();
+
     const selectedTryb = event.target.value;
-    const levelElement = document.querySelector('input[name="level"]:checked');
-    const typeElement = document.querySelector('input[name="courseType"]:checked');
-    const selectedLevel = levelElement ? levelElement.value : null;
-    const selectedType = typeElement ? typeElement.value : null;
+    const selectedLevel = document.querySelector('input[name="level"]:checked').value;
+    const selectedType = document.querySelector('input[name="courseType"]:checked').value;
+    const poras = [...new Set(courses.filter(course => course.Tryb === selectedTryb && course.Level === selectedLevel && course.Type === selectedType).map(course => course.Pora))];
 
-    const filteredCourses = courses.filter(course => course.Type === selectedType && course.Level === selectedLevel && course.Tryb === selectedTryb);
-    const poras = [...new Set(filteredCourses.map(course => course.Pora))];
+    const poraOptions = poras.map(pora => `<label><input type="radio" name="coursePora" value="${pora}" onchange="handlePoraChange(event)"> ${pora}</label>`).join('');
+    document.getElementById('pora').innerHTML = poraOptions;
+    document.getElementById('poraOptionsHeader').style.display = poras.length > 0 ? 'block' : 'none';
 
-    const poraOptions = poras.map(pora => `<label><input type="radio" name="pora" value="${pora}" onchange="handlePoraChange(event)">${pora}</label>`).join('');
-
-    document.getElementById('poraOptions').innerHTML = poraOptions;
-	poraOptionsHeader.style.display = 'block';
+    if (poras.length === 1) {
+        const singlePoraInput = document.querySelector('input[name="coursePora"]');
+        singlePoraInput.checked = true;
+        handlePoraChange({ target: singlePoraInput });
+    }
 }
 
 function handlePoraChange(event) {
-    resetDays();
     resetCourseList();
     resetCourseDetails();
-	daysOptionsHeader.style.display = 'block';
+
     const selectedPora = event.target.value;
-    const levelElement = document.querySelector('input[name="level"]:checked');
-    const typeElement = document.querySelector('input[name="courseType"]:checked');
-    const trybElement = document.querySelector('input[name="tryb"]:checked');
-    const selectedLevel = levelElement ? levelElement.value : null;
-    const selectedType = typeElement ? typeElement.value : null;
-    const selectedTryb = trybElement ? trybElement.value : null;
+    const selectedLevel = document.querySelector('input[name="level"]:checked').value;
+    const selectedType = document.querySelector('input[name="courseType"]:checked').value;
+    const selectedTryb = document.querySelector('input[name="courseTryb"]:checked').value;
 
     const filteredCourses = courses.filter(course => course.Type === selectedType && course.Level === selectedLevel && course.Tryb === selectedTryb && course.Pora === selectedPora);
-    const days = [...new Set(filteredCourses.map(course => course.Days))];
-
-    const daysOptions = days.map(day => {
-        let dayLabel;
-        switch(day) {
-            case "1": dayLabel = "poniedziałki i środy"; break;
-            case "2": dayLabel = "wtorki i czwartki"; break;
-            case "3": dayLabel = "piątki"; break;
-            case "4": dayLabel = "soboty"; break;
-            default: dayLabel = "inne"; break;
-        }
-        return `<label><input type="radio" name="days" value="${day}" onchange="handleDaysChange(event)">${dayLabel}</label>`;
-    }).join('');
-    document.getElementById('daysOptions').innerHTML = daysOptions;
-}
-
-function handleDaysChange(event) {
-    resetCourseList();
-    resetCourseDetails();
-	listOptionsHeader.style.display = 'block';
-    const selectedDays = event.target.value;
-    const levelElement = document.querySelector('input[name="level"]:checked');
-    const typeElement = document.querySelector('input[name="courseType"]:checked');
-    const trybElement = document.querySelector('input[name="tryb"]:checked');
-    const poraElement = document.querySelector('input[name="pora"]:checked');
-    const selectedLevel = levelElement ? levelElement.value : null;
-    const selectedType = typeElement ? typeElement.value : null;
-    const selectedTryb = trybElement ? trybElement.value : null;
-    const selectedPora = poraElement ? poraElement.value : null;
-
-    const filteredCourses = courses.filter(course => course.Type === selectedType && course.Level === selectedLevel && course.Tryb === selectedTryb && course.Pora === selectedPora && course.Days == selectedDays);
     displayCourses(filteredCourses);
+
+    document.getElementById('listOptionsHeader').style.display = 'block';
 }
+
 function displayCourses(courses) {
     resetCourseList();
     const courseListContainer = document.getElementById('courseList');
@@ -648,11 +608,10 @@ function displayCourses(courses) {
     selectElement.name = 'courseSelect';
     selectElement.onchange = function() {
         const selectedCourseValue = selectElement.value;
-        const [courseStart, courseName] = selectedCourseValue.split('_'); // Podzielenie wartości na datę rozpoczęcia i nazwę kursu
-        displayCourseDetails(courseStart, courseName); // Wywołanie funkcji z datą rozpoczęcia i nazwą kursu jako argumentami
+        const [courseStart, courseName] = selectedCourseValue.split('_');
+        displayCourseDetails(courseStart, courseName);
     };
 
-    // Dodanie opcji z tekstem "Wybierz kurs z listy i uzupełnij dane"
     const defaultOption = document.createElement('option');
     defaultOption.value = '';
     defaultOption.textContent = 'Wybierz kurs z listy i uzupełnij dane';
@@ -662,7 +621,7 @@ function displayCourses(courses) {
 
     courses.forEach(course => {
         const optionElement = document.createElement('option');
-        const optionValue = `${course.Start}_${course.Name}`; // Tworzenie wartości opcji na podstawie daty i nazwy kursu
+        const optionValue = `${course.Start}_${course.Name}`;
         optionElement.value = optionValue;
         optionElement.textContent = `${course.Start} - ${course.Name}`;
         selectElement.appendChild(optionElement);
@@ -671,17 +630,17 @@ function displayCourses(courses) {
     courseListContainer.appendChild(selectElement);
 }
 
-function displayCourseDetails(courseStart, courseName) { // Dodanie parametrów startu i nazwy kursu
-    const course = courses.find(course => course.Start === courseStart && course.Name === courseName); // Znalezienie kursu na podstawie daty rozpoczęcia i nazwy
-    if (!course) return; // Dodajemy sprawdzenie, czy kurs został znaleziony
+function displayCourseDetails(courseStart, courseName) {
+    const course = courses.find(course => course.Start === courseStart && course.Name === courseName);
+    if (!course) return;
 
-    var courseTypeName = "";
-    if (course.Type ==="O"){
-        courseTypeName = "Ogólny"
-    } else if (course.Type==="K"){
-        courseTypeName = "Konwersacje"
-    } else if (course.Type==="N"){
-        courseTypeName = "Norskprove"
+    let courseTypeName = "";
+    if (course.Type === "O") {
+        courseTypeName = "Ogólny";
+    } else if (course.Type === "K") {
+        courseTypeName = "Konwersacje";
+    } else if (course.Type === "N") {
+        courseTypeName = "Norskprove";
     }
 
     const courseDetailsHTML = `
@@ -697,7 +656,5 @@ function displayCourseDetails(courseStart, courseName) { // Dodanie parametrów 
         <p><strong>Cena:</strong> ${course.Price} zł</p>
     `;
     document.getElementById('courseDetails').innerHTML = courseDetailsHTML;
-	const additionalFields = document.getElementById('additionalFields');
-	additionalFields.style.display = 'block';
-
+    document.getElementById('additionalFields').style.display = 'block';
 }
