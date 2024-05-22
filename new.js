@@ -1,7 +1,7 @@
 const courses = [
 	{
 		"Level": "A1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "01.09.2024",
 		"End": "11.12.2024",
 		"Name": "START!(A1) poniedziałki środy 7:30-9:00",
@@ -13,7 +13,7 @@ const courses = [
 	},
 	{
 		"Level": "A1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "02.10.2024",
 		"End": "11.12.2024",
 		"Name": "START!(A1) poniedziałki środy 17:30-20:45 INTENSYWNY",
@@ -25,7 +25,7 @@ const courses = [
 	},
 	{
 		"Level": "A1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "02.09.2024",
 		"End": "11.12.2024",
 		"Name": "START!(A1) poniedziałki środy 17:30-20:45 INTENSYWNY",
@@ -37,7 +37,7 @@ const courses = [
 	},
 	{
 		"Level": "A1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "02.09.2024",
 		"End": "11.12.2024",
 		"Name": "START!(A1) poniedziałki środy 19:30-20:45",
@@ -49,7 +49,7 @@ const courses = [
 	},
 	{
 		"Level": "A1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "03.09.2024",
 		"End": "11.12.2024",
 		"Name": "START!(A1) wtorki czwartki 19:30-20:45",
@@ -61,7 +61,7 @@ const courses = [
 	},
 	{
 		"Level": "A1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "START!(A1) poniedziałki wtorki środy czwartki piątki 10:30-9:00 SUPERINTENSYWNY",
@@ -73,7 +73,7 @@ const courses = [
 	},
 	{
 		"Level": "A1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.10.2024",
 		"End": "11.12.2024",
 		"Name": "START!(A1) poniedziałki wtorki środy czwartki piątki 10:30-9:00 SUPERINTENSYWNY",
@@ -85,7 +85,7 @@ const courses = [
 	},
 	{
 		"Level": "A1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "05.09.2024",
 		"End": "11.12.2024",
 		"Name": "START!(A1) poniedziałki środy 19:30-20:45",
@@ -97,7 +97,7 @@ const courses = [
 	},
 	{
 		"Level": "A1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "06.09.2024",
 		"End": "11.12.2024",
 		"Name": "START!(A1) wtorki czwartki 19:30-20:45",
@@ -109,7 +109,7 @@ const courses = [
 	},
 	{
 		"Level": "A1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "START!(A1) poniedziałki środy 7:30-9:00",
@@ -121,7 +121,7 @@ const courses = [
 	},
 	{
 		"Level": "A1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "01.09.2024",
 		"End": "11.12.2024",
 		"Name": "START!(A1) poniedziałki środy 19:30-20:45",
@@ -133,7 +133,7 @@ const courses = [
 	},
 	{
 		"Level": "A1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "02.09.2024",
 		"End": "11.12.2024",
 		"Name": "START!(A1) wtorki czwartki 19:30-20:45",
@@ -145,7 +145,7 @@ const courses = [
 	},
 	{
 		"Level": "A2",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "W GÓRĘ poniedziałki wtorki środy czwartki piątki 10:30-9:00 SUPERINTENSYWNY",
@@ -157,7 +157,7 @@ const courses = [
 	},
 	{
 		"Level": "A2",
-		"Type": "O",
+		"Type": "1",
 		"Start": "03.09.2024",
 		"End": "11.12.2024",
 		"Name": " W DORODZE A2 piątek 19:30-20:45",
@@ -169,7 +169,7 @@ const courses = [
 	},
 	{
 		"Level": "A2",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "W DORODZE A2 SOBOTA 19:30-20:45",
@@ -181,7 +181,7 @@ const courses = [
 	},
 	{
 		"Level": "A2",
-		"Type": "O",
+		"Type": "1",
 		"Start": "01.09.2024",
 		"End": "11.12.2024",
 		"Name": "W DORODZE A2 wtoerki czwartki 7:30-9:00",
@@ -193,7 +193,7 @@ const courses = [
 	},
 	{
 		"Level": "A2",
-		"Type": "O",
+		"Type": "1",
 		"Start": "01.09.2024",
 		"End": "11.12.2024",
 		"Name": "W DORODZE A2 wtorki i czwartki 17:30-19:00",
@@ -205,7 +205,7 @@ const courses = [
 	},
 	{
 		"Level": "A2",
-		"Type": "O",
+		"Type": "1",
 		"Start": "01.09.2024",
 		"End": "11.12.2024",
 		"Name": "W DORODZE A2 poniedziałki środy 7:30-9:00",
@@ -217,7 +217,7 @@ const courses = [
 	},
 	{
 		"Level": "A2",
-		"Type": "O",
+		"Type": "1",
 		"Start": "02.09.2024",
 		"End": "11.12.2024",
 		"Name": "W DORODZE A2 poniedziałki środy 19:30-20:45",
@@ -229,7 +229,7 @@ const courses = [
 	},
 	{
 		"Level": "A2",
-		"Type": "N",
+		"Type": "3",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "NORSKPOROVE A2 wtorki czwartki 19:30-20:45",
@@ -241,7 +241,7 @@ const courses = [
 	},
 	{
 		"Level": "B1-1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "b1-1 poniedziałki wtorki środy czwartki piątki 10:30-9:00 SUPERINTENSYWNY",
@@ -253,7 +253,7 @@ const courses = [
 	},
 	{
 		"Level": "B1-1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "b1-2 poniedziałki środy 17:30-20:30 INTENSYWNY",
@@ -265,7 +265,7 @@ const courses = [
 	},
 	{
 		"Level": "B1-1",
-		"Type": "K",
+		"Type": "2",
 		"Start": "03.09.2024",
 		"End": "11.12.2024",
 		"Name": " B1 KONWERSACJE wtorki czwartki 19:30-20:45",
@@ -277,7 +277,7 @@ const courses = [
 	},
 	{
 		"Level": "B1-1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "W GÓRĘ B1-1 wtorki czwartki 19:30-20:45",
@@ -289,7 +289,7 @@ const courses = [
 	},
 	{
 		"Level": "B1-1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "W GÓRĘ B1-1 poniedziałki i środy 9:30-10:45",
@@ -301,7 +301,7 @@ const courses = [
 	},
 	{
 		"Level": "B1-1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "W GÓRĘ B1-1 wtorki czwartki 19:30-20:45",
@@ -313,7 +313,7 @@ const courses = [
 	},
 	{
 		"Level": "B1-1",
-		"Type": "N",
+		"Type": "3",
 		"Start": "05.09.2024",
 		"End": "11.12.2024",
 		"Name": "nORSKPROVE B1-1 wtorki czwartki 19:30-20:45",
@@ -325,7 +325,7 @@ const courses = [
 	},
 	{
 		"Level": "B1-1",
-		"Type": "K",
+		"Type": "2",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "B1 Konwersacje piątek 19:30-20:45",
@@ -337,7 +337,7 @@ const courses = [
 	},
 	{
 		"Level": "B1-2",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "b1-2 poniedziałki wtorki środy czwartki piątki 10:30-9:00 SUPERINTENSYWNY",
@@ -349,7 +349,7 @@ const courses = [
 	},
 	{
 		"Level": "B1-2",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "b1-2 poniedziałki  środy 10:30-12:00 INTENSYWNY",
@@ -361,7 +361,7 @@ const courses = [
 	},
 	{
 		"Level": "B1-2",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "b1-2  wtorki  czwartki  17:30-20:40 INTENSYWNY",
@@ -373,7 +373,7 @@ const courses = [
 	},
 	{
 		"Level": "B1-2",
-		"Type": "O",
+		"Type": "1",
 		"Start": "07.09.2024",
 		"End": "11.12.2024",
 		"Name": "B1-2 piątek 19:30-20:45",
@@ -385,7 +385,7 @@ const courses = [
 	},
 	{
 		"Level": "B2-1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "B2-1 poniedziałek środa 19:30-20:45",
@@ -397,7 +397,7 @@ const courses = [
 	},
 	{
 		"Level": "B2-1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "B2-1 wtorek czwartek 17:30-19:00",
@@ -409,7 +409,7 @@ const courses = [
 	},
 	{
 		"Level": "B2-1",
-		"Type": "K",
+		"Type": "2",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "B2-1 KONWERSACJE WTOKI I CZWARTKI 7:30-10:00",
@@ -421,7 +421,7 @@ const courses = [
 	},
 	{
 		"Level": "B2-1",
-		"Type": "N",
+		"Type": "3",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "NORSKPROVE B2 poniedziałki środy 19:30-20:45",
@@ -433,7 +433,7 @@ const courses = [
 	},
 	{
 		"Level": "B2-2",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "B2-2 piątek 19:30-20:45",
@@ -445,7 +445,7 @@ const courses = [
 	},
 	{
 		"Level": "C1-1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": " BLISKO CELU C1-1 poniedziałki środy 7:30-9:00",
@@ -457,7 +457,7 @@ const courses = [
 	},
 	{
 		"Level": "C1-1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": " BLISKO CELU C1-1 wtorki czwartki 17:30-19:00",
@@ -469,7 +469,7 @@ const courses = [
 	},
 	{
 		"Level": "C1-1",
-		"Type": "O",
+		"Type": "1",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": " BLISKO CELU C1-1 poniedziałki środy 17:30-9:00",
@@ -481,7 +481,7 @@ const courses = [
 	},
 	{
 		"Level": "C1-2",
-		"Type": "N",
+		"Type": "3",
 		"Start": "04.09.2024",
 		"End": "11.12.2024",
 		"Name": "NORKSPROVE C1 wtorki czwartki 19:30-20:45",
@@ -520,6 +520,36 @@ function resetCourseList() {
     document.getElementById('courseList').innerHTML = '';
     resetCourseDetails();
 }
+
+const types = {
+	1: "Kurs ogólny",
+	2: "Konwersacje",
+	3: "Przygotowanie do Norskprøve"
+  };
+
+  const uniqueTypes = [...new Set(courses.map(course => course.Type))];
+
+  const radioContainer = document.getElementById('radioContainer');
+
+  uniqueTypes.forEach(type => {
+	if (types[type]) {
+	  const label = document.createElement('label');
+	  label.textContent = types[type];
+	  const radio = document.createElement('input');
+	  radio.type = 'radio';
+	  radio.name = 'courseType';
+	  radio.value = type;
+	  radio.addEventListener('change', handleTypeChange);
+	  radioContainer.appendChild(label);
+	  radioContainer.appendChild(radio);
+	  radioContainer.appendChild(document.createElement('br')); // Dodajemy znacznik br dla nowej linii
+	}
+  });
+
+  function handleTypeChange(event) {
+	console.log(`Selected type: ${event.target.value}`);
+	// Twoja funkcja obsługująca zmianę typu
+  }
 
 function handleTypeChange(event) {
     resetLevels();
