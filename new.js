@@ -542,13 +542,12 @@ const types = {
 	  radio.addEventListener('change', handleTypeChange);
 	  radioContainer.appendChild(label);
 	  radioContainer.appendChild(radio);
-	  radioContainer.appendChild(document.createElement('br')); // Dodajemy znacznik br dla nowej linii
+	  radioContainer.appendChild(document.createElement('br')); 
 	}
   });
 
   function handleTypeChange(event) {
 	console.log(`Selected type: ${event.target.value}`);
-	// Twoja funkcja obsługująca zmianę typu
   }
 
 function handleTypeChange(event) {
@@ -688,3 +687,112 @@ function displayCourseDetails(courseStart, courseName) {
     document.getElementById('courseDetails').innerHTML = courseDetailsHTML;
     document.getElementById('additionalFields').style.display = 'block';
 }
+const submitButton = document.querySelector("#submitButton");
+
+
+
+submitButton.addEventListener("click", function (event) {
+    event.preventDefault(); 
+
+    const requiredFields = document.querySelectorAll("[required='true']");
+    let formValid = true;
+
+    requiredFields.forEach(function (field) {
+        if (field.type === "checkbox") {
+            if (!field.checked) {
+                const label = document.querySelector(`label[for='${field.id}']`);
+                label.classList.add("red"); 
+                formValid = false;
+            } else {
+                const label = document.querySelector(`label[for='${field.id}']`);
+                label.classList.remove("red"); 
+            }
+        } else {
+            if (field.value.trim() === "") {
+                const label = document.querySelector(`label[for='${field.id}']`);
+                label.classList.add("red"); 
+                formValid = false;
+            } else {
+                const label = document.querySelector(`label[for='${field.id}']`);
+                label.classList.remove("red"); 
+            }
+        }
+    });
+
+
+    if (!formValid) {
+        const message = document.getElementById("formAlert");
+        message.innerHTML= "Uzupełnij poprawnie formularz";
+        return;
+    }
+
+  
+
+    console.log("Formularz został poprawnie wypełniony. Możesz kontynuować proces wysyłania.");
+
+
+	       
+
+    const courseSelection = document.getElementById('courseSelect').value;
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+	const phone = document.getElementById('phone').value;
+const faktura = document.querySelector('input[name="invoice"]').checked
+	const daneFaktury = document.getElementById('invoiceData').value;
+	const nip = document.getElementById('NIP').value;
+	const adresFirmy = document.getElementById('adresFirmy').value;
+	const student = document.getElementById('student').checked;
+	const uwagi = document.getElementById('remarks').value;
+	const zgodaMarketingowa = document.getElementById('marketingConsent').checked;
+	const zgodaSprzedazowa = document.getElementById('salesConsent').checked;
+	const zgodaUmowna = document.getElementById('contractConsent').checked;
+
+    // Prepare data to be sent to the API
+    const data = {
+        kursant: {
+		course: courseSelection,
+            firstName: firstName,
+            lastName: lastName,
+			schoolid:1,
+			type: "guest",
+			email: email,
+			phone: phone,
+			faktura: faktura,
+			nazwaFirmy: daneFaktury,
+			adresFirmy: adresFirmy,
+			nip: nip,
+			adresFirmy: adresFirmy,
+			student: student,
+			uwagi: uwagi,
+			zgodaMarketingowa: zgodaMarketingowa,
+			zgodaSprzedazowa: zgodaSprzedazowa,
+			zgodaUmowna: zgodaUmowna },}
+     
+console.log(data)
+});
+
+var invoiceYes = document.getElementById("invoiceYes");
+var invoiceData = document.getElementById("invoiceData");
+var NIP = document.getElementById("NIP");
+var adresFirmy = document.getElementById("adresFirmy");
+
+invoiceYes.addEventListener("change", function() {
+    if (this.checked) {
+        invoiceData.required = true;
+        NIP.required = true;
+        adresFirmy.required = true;
+        var wymagane = document.getElementsByClassName("invce_red");
+        for (var i = 0; i < wymagane.length; i++) {
+            wymagane[i].style.display = "inline";
+        }
+    } else {
+        invoiceData.required = false;
+        NIP.required = false;
+        adresFirmy.required = false;
+        var wymagane = document.getElementsByClassName("invce_red");
+        for (var i = 0; i < wymagane.length; i++) {
+            wymagane[i].style.display = "none";
+        }
+    }
+});

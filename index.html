@@ -36,50 +36,49 @@
     <div id="additionalFields" style="display: none;">
         <h2>Uzupełnij dane </h2>
         <!-- Dodatkowe pola -->
-        <label for="firstName">Imię:</label>
-        <input type="text" id="firstName" name="firstName"><br>
+        <label for="firstName">Imię:<span class="red">*</span></label>
+        <input type="text" id="firstName" name="firstName" required="true"><br>
 
-        <label for="lastName">Nazwisko:</label>
-        <input type="text" id="lastName" name="lastName"><br>
+        <label for="lastName">Nazwisko:<span class="red">*</span></label>
+        <input type="text" id="lastName" name="lastName" required="true"><br>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br>
+        <label for="email">Email:<span class="red">*</span></label>
+        <input type="email" id="email" name="email" required="true"><br>
 
-        <label for="phone">Telefon:</label>
-        <input type="text" id="phone" name="phone"><br>
+        <label for="phone">Telefon:<span class="red">*</span></label>
+        <input type="text" id="phone" name="phone" required="true"><br>
 
-        <h5>Czy chcesz, aby wystawiono fakturę? </h5>
-        <input type="radio" id="invoiceYes" name="invoice" value="tak">
-        <label for="invoiceYes">Tak</label>
-        <input type="radio" id="invoiceNo" name="invoice" value="nie">
-        <label for="invoiceNo">Nie</label><br>
+        <h5>Czy chcesz, aby wystawiono fakturę?</h5>
+        <input type="checkbox" id="invoiceYes" name="invoice" value="tak">
+        <label for="invoiceYes">Tak</label><br>
 
-        <label for="invoiceData">Nazwa Firmy</label><br>
-        <input type="text" id="invoiceData" name="invoiceData"><br>
+        <label for="invoiceData">Nazwa Firmy<span class="red invce_red" style="display:none">*</span></label><br>
+        <input type="text" id="invoiceData" name="invoiceData" required="false"><br>
 
-        <label for="NIP">NIP</label><br>
-        <input type="number" id="NIP" name="NIP" /><br>
-        <label for="adresFirmy">Uwagi:</label><br>
-        <textarea id="adresFirmy" name="adresFirmy" rows="4" cols="50"></textarea><br>
+        <label for="NIP">NIP<span class="red invce_red" style="display:none">*</span></label><br>
+        <input type="text" id="NIP" name="NIP" required="false"/><br>
+
+        <label for="adresFirmy">Adres firmy:<span class="red invce_red" style="display:none">*</span></label><br>
+        <textarea id="adresFirmy" name="adresFirmy" rows="4" cols="50" required="false"></textarea><br>
 
 
-        <h5>Czy jesteś studentem </h5>
-        <input type="radio" id="studentYes" name="student" value="tak">
+        <h5>Czy jesteś studentem?</h5>
+        <input type="checkbox" id="student" name="student" value="tak">
         <label for="studentYes">Tak</label>
-        <input type="radio" id="studentNo" name="student" value="nie">
-        <label for="studentNo">Nie</label><br>
-
+    
         <label for="remarks">Uwagi:</label><br>
         <textarea id="remarks" name="remarks" rows="4" cols="50"></textarea><br>
 
-        <input type="checkbox" id="marketingConsent" name="marketingConsent" value="tak">
+        <input type="checkbox" id="marketingConsent" name="marketingConsent" value="tak" required="true">
         <label for="marketingConsent">Zgoda na przetwarzanie danych w celach marketingowych</label><br>
 
-        <input type="checkbox" id="contractConsent" name="contractConsent" value="tak">
+        <input type="checkbox" id="contractConsent" name="contractConsent" value="tak" required="true">
         <label for="contractConsent">Zgoda na przetwarzanie danych w celach umownych</label><br>
 
-        <input type="checkbox" id="salesConsent" name="salesConsent" value="tak">
+        <input type="checkbox" id="salesConsent" name="salesConsent" value="tak" required="true">
         <label for="salesConsent">Zgoda na przetwarzanie danych w celach handlowych</label><br>
+<div><h5 id="formAlert" class="formAlert"></h5><div>
+        <button id="submitButton">Zapisuję się na kurs</button>
     </div>
 
     <script src="new.js"></script>
