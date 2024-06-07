@@ -1,10 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap');
+body{
+    font-family: "Poppins", sans-serif;
+}
 #additionalFields {
     display: none;
     margin-top: 20px;
 }
-#courseDetails {
-    margin-top: 20px;
-}
+
 .red{
     color: red;
 }
+h4{
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.typKursu{
+    margin:0;
+    display:flex;
+
+    width: 60%;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+    padding:10px
+}
+#radioContainer{
+    display: flex;
+    margin:0;    
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.typKursu-1{
+background-color: #FCE7DB;
+}
+.typKursu-2{
+    background-color: #caf4e8;  
+}
+.typKursu-3{
+    background-color: #eae4f5;
+}
+
+.typKursu-1.checked{
+    background-color: #EE9558;
+    color:white;
+    font-weight: 600;
+    }
+    .typKursu-2.checked{
+        background-color: #81e5cd;  
+        color:white;
+        font-weight: 600;
+    }
+    .typKursu-3.checked{
+        background-color: #734BBC;
+        color:white;
+        font-weight: 600;
+    }
+.unchecked{
+    background-color: #f3f3f3;
+    color:rgb(172, 172, 172)
+}
+   #formContainer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+   }
+   .formContainer-form,
+   .formContainer-description{
+    width: 50%;
+   }

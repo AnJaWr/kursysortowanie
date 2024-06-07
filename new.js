@@ -494,31 +494,172 @@ const courses = [
 ];
 
 function resetCourseDetails() {
-    document.getElementById('courseDetails').innerHTML = '';
+
+    // document.getElementById('courseDetails').innerHTML = '';
+		// Pobierz wszystkie elementy radio
+		const type = document.querySelector('input[name="courseType"]:checked');
+		const level = document.querySelector('input[name="level"]:checked');
+		const tryb = document.querySelector('input[name="courseTryb"]:checked');
+		const pora = document.querySelector('input[name="coursePora"]:checked');
+		const nazwaKursu = document.getElementById('courseSelect');
+        const nazwa = nazwaKursu ? nazwaKursu.value : '';
+		console.log(nazwa)
+
+ const radioButtons = document.querySelectorAll('input[type="radio"]');
+    
+
+		// Zaktualizuj wartości w kontenerze
+		document.getElementById('courseDetails_type').textContent = type ? type.value : '';
+		if (type) {
+			switch(type.value) {
+				case '1':
+					document.getElementById('courseDetails_type').textContent = 'Ogólny';
+					break;
+				case '2':
+					document.getElementById('courseDetails_type').textContent = 'Konwersacje';
+					break;
+				case '3':
+					document.getElementById('courseDetails_type').textContent = 'Przygotowanie do Norskprøve';
+					break;
+				default:
+					document.getElementById('courseDetails_type').textContent = '';
+			}
+		} else {
+			document.getElementById('courseDetails_type').textContent = '';
+		}
+
+		
+		if (nazwa) {
+		
+			document.getElementById('courseDetails_name').textContent = ""
+		document.getElementById('courseDetails_lnumbers').textContent = ""
+	document.getElementById('courseDetails_start').textContent = ""
+		document.getElementById('courseDetails_end').textContent = ""
+	document.getElementById('courseDetails_price').textContent = ""
+
+			fetch('kursy.json')
+			.then(response => response.json())
+			.then(data => {
+				// Pobierz wartość wybraną z select
+				const selectedValue = nazwaKursu.value;
+		
+				// Sprawdź czy selectedValue ma co najmniej 16 znaków
+				if (selectedValue.length >= 16) {
+					// Pobierz pierwsze 10 znaków z selectedValue
+					const startPart = selectedValue.substring(0,10);
+					console.log("start part:" + startPart);
+		
+					// Pobierz od 12-tego znaku do końca selectedValue
+					const namePart = selectedValue.substring(10);
+					console.log("selected value:" + namePart);
+		
+					// Znajdź kurs o pasujących wartościach
+					const kurs = data.find(item => item.Start == startPart && item.Name == namePart);
+					console.log(kurs);
+		
+					// Jeśli kurs został znaleziony, zaktualizuj zawartość kontenera
+					if (kurs) {
+						document.getElementById('courseDetails_name').textContent = kurs.Name;
+						document.getElementById('courseDetails_lnumbers').textContent = kurs.Lnumber;
+						document.getElementById('courseDetails_start').textContent = kurs.Start;
+						document.getElementById('courseDetails_end').textContent = kurs.End;
+						document.getElementById('courseDetails_price').textContent = kurs.Price;
+					} else {
+						console.error('Błąd: Brak danych kursów pasujących do wybranej wartości.');
+					}
+				} else {
+					console.error('Błąd: Wybrana wartość nie ma co najmniej 16 znaków.');
+				}
+			})
+			.catch(error => {
+				console.error('Błąd podczas wczytywania danych:', error);
+			});
+		} else {
+			console.error('Błąd: Nie wybrano wartości.');
+	
+		}
+
+		document.getElementById('courseDetails_level').textContent = level ? level.value : '';
+		document.getElementById('courseDetails_tryb').textContent = tryb ? tryb.value : '';
+		document.getElementById('courseDetails_pora').textContent = pora ? pora.value : '';
+		// if (nazwa) {
+		// 	// Wczytaj plik JSON z danymi kursów
+		// 	fetch('kursy.json')
+		// 		.then(response => response.json())
+		// 		.then(data => {
+		// 			// Znajdź kurs o nazwie zaczynającej się od pierwszych dziesięciu znaków trybu
+		// 			const kurs = data.find(item => item.nazwa.startsWith(nazwa.substring(11,20)));
+
+		// 			// Jeśli kurs został znaleziony, zaktualizuj zawartość kontenera
+		// 			if (kurs) {
+		// 				document.getElementById('courseDetails_name').textContent = kurs.name;
+		// 				document.getElementById('courseDetails_days').textContent = kurs.days;
+		// 				document.getElementById('courseDetails_lnumbers').textContent = kurs.lnumbers;
+		// 				document.getElementById('courseDetails_start').textContent = kurs.start;
+		// 				document.getElementById('courseDetails_end').textContent = kurs.end;
+		// 				document.getElementById('courseDetails_price').textContent = kurs.price;
+		// 			}
+		// 		})
+		// 		.catch(error => console.error('Błąd podczas wczytywania danych:', error));
+		// }
+		
+	}
+
+	
+		//  document.getElementById('courseDetails_name').textContent = nazwa.length > 10 ? nazwa.substring(10) : '';
+
+
+	// Dodaj nasłuchiwanie na zmianę dla każdego pola radio
+	// document.querySelectorAll('input[name="type"], input[name="level"], input[name="pora"]').forEach((input) => {
+	// 	input.addEventListener('change', updateCourseDetails);
+	// });});
+
+
+
+function resetTypes(){
+    resetCourseDetails();
+
 }
 
 // Funkcje resetujące inne opcje i listy kursów
 function resetLevels() {
+	
     document.getElementById('level').innerHTML = '';
     document.getElementById('additionalFields').style.display = 'none';
-    resetCourseDetails();
+	document.getElementById('levelOptionsHeader').style.display = 'none';
+	document.getElementById('trybOptionsHeader').style.display = 'none';
+	document.getElementById('poraOptionsHeader').style.display = 'none';
+
+resetCourseDetails();
 }
 
 function resetTrybs() {
+	
     document.getElementById('tryb').innerHTML = '';
     document.getElementById('additionalFields').style.display = 'none';
-    resetCourseDetails();
+
+resetCourseDetails();
 }
 
-function resetPora() {
+function resetPora() {  
+	
+	resetCourseDetails();
+	document.getElementById('poraOptionsHeader').style.display = 'none';
+	
     document.getElementById('pora').innerHTML = '';
     document.getElementById('additionalFields').style.display = 'none';
-    resetCourseDetails();
+  
+
+
 }
 
 function resetCourseList() {
+	 
+	 resetCourseDetails();
     document.getElementById('courseList').innerHTML = '';
-    resetCourseDetails();
+	selectedValue = "";
+
+  
 }
 
 const types = {
@@ -526,56 +667,111 @@ const types = {
 	2: "Konwersacje",
 	3: "Przygotowanie do Norskprøve"
   };
-
+  
   const uniqueTypes = [...new Set(courses.map(course => course.Type))];
-
+  
   const radioContainer = document.getElementById('radioContainer');
-
+  
   uniqueTypes.forEach(type => {
 	if (types[type]) {
 	  const label = document.createElement('label');
-	  label.textContent = types[type];
 	  const radio = document.createElement('input');
 	  radio.type = 'radio';
 	  radio.name = 'courseType';
 	  radio.value = type;
 	  radio.addEventListener('change', handleTypeChange);
-	  radioContainer.appendChild(label);
+	  label.textContent = types[type];
+	  label.setAttribute('for', 'courseType_' + type); // Ustawiamy atrybut 'for' na identyfikator radio
+	  //label.style.cursor = 'pointer';  Ustawiamy kursor na pointer, aby pokazać, że to klikalne
+	  // label.style.display = 'flex'; Ustawiamy label na block, aby zajmował całą szerokość kontenera
+	  label.classList.add('typKursu');
+	  label.classList.add('typKursu-' + type);
+	  radio.id = 'courseType_' + type; // Nadajemy identyfikator radio
+	  radio.style.display = 'none'; // Ukrywamy radio
 	  radioContainer.appendChild(radio);
-	  radioContainer.appendChild(document.createElement('br')); 
+	  radioContainer.appendChild(label);
 	}
   });
 
   function handleTypeChange(event) {
-	console.log(`Selected type: ${event.target.value}`);
-  }
-
-function handleTypeChange(event) {
+	
+    // Resetujemy wszystkie sekcje.    
+	resetTypes();
     resetLevels();
     resetTrybs();
     resetPora();
     resetCourseList();
     resetCourseDetails();
-    
+
+
     const selectedType = event.target.value;
+
     const levels = [...new Set(courses.filter(course => course.Type === selectedType).map(course => course.Level))];
 
-    const levelOptions = levels.map(level => `<label><input type="radio" name="level" value="${level}" onchange="handleLevelChange(event)">${level}</label>`).join('');
+    const levelOptions = levels.map(level => `
+        <label for="level_${level}">
+            <input type="radio" id="level_${level}" name="level" value="${level}" onchange="handleLevelChange(event)">${level}
+        </label>
+    `).join('');
+
     document.getElementById('level').innerHTML = levelOptions;
     document.getElementById('levelOptionsHeader').style.display = 'block';
 
-    if (levels.length === 1) {
-        const singleLevelInput = document.querySelector('input[name="level"]');
-        singleLevelInput.checked = true;
-        handleLevelChange({ target: singleLevelInput });
-    }
+    const labelsCourseType = Array.from(document.getElementsByClassName('typKursu'));
+
+    labelsCourseType.forEach(label => {
+        const radioId = label.getAttribute('for');
+        const radio = document.getElementById(radioId);
+
+        if (!radio) {
+            console.warn(`Nie znaleziono elementu input z id "${radioId}"`);
+            return;
+        }
+        if (radio.checked) {
+            console.log(`Zaznaczone: ${radioId}`);
+            label.classList.add('checked');
+            label.classList.remove('unchecked');
+        } else {
+            label.classList.add('unchecked');
+            label.classList.remove('checked');
+        }
+
+    
+        label.addEventListener('click', function() {
+            labelsCourseType.forEach(otherLabel => {
+                otherLabel.classList.remove('checked');
+                otherLabel.classList.add('unchecked');
+            });
+
+            label.classList.add('checked');
+            label.classList.remove('unchecked');
+
+            radio.checked = true;
+            radio.dispatchEvent(new Event('change'));
+        });
+
+       
+        radio.addEventListener('change', function() {
+            if (radio.checked) {
+                label.classList.add('checked');
+                label.classList.remove('unchecked');
+            } else {
+                label.classList.add('unchecked');
+                label.classList.remove('checked');
+            }
+        });
+    });
 }
 
 function handleLevelChange(event) {
     resetTrybs();
     resetPora();
     resetCourseList();
-    resetCourseDetails();
+	document.getElementById('courseDetails_name').textContent = "";
+	document.getElementById('courseDetails_lnumbers').textContent = "";
+	document.getElementById('courseDetails_start').textContent = "";
+	document.getElementById('courseDetails_end').textContent = "";
+	document.getElementById('courseDetails_price').textContent = "";
 
     const selectedLevel = event.target.value;
     const selectedType = document.querySelector('input[name="courseType"]:checked').value;
@@ -590,12 +786,18 @@ function handleLevelChange(event) {
         singleTrybInput.checked = true;
         handleTrybChange({ target: singleTrybInput });
     }
+	resetCourseDetails();
 }
 
 function handleTrybChange(event) {
+	document.getElementById('courseDetails_name').textContent = "";
+	document.getElementById('courseDetails_lnumbers').textContent = "";
+	document.getElementById('courseDetails_start').textContent = "";
+	document.getElementById('courseDetails_end').textContent = "";
+	document.getElementById('courseDetails_price').textContent = "";
+	
     resetPora();
     resetCourseList();
-    resetCourseDetails();
 
     const selectedTryb = event.target.value;
     const selectedLevel = document.querySelector('input[name="level"]:checked').value;
@@ -611,25 +813,32 @@ function handleTrybChange(event) {
         singlePoraInput.checked = true;
         handlePoraChange({ target: singlePoraInput });
     }
+	resetCourseDetails();
 }
 
 function handlePoraChange(event) {
-    resetCourseList();
-    resetCourseDetails();
 
+	document.getElementById('courseDetails_name').textContent = "";
+	document.getElementById('courseDetails_lnumbers').textContent = "";
+	document.getElementById('courseDetails_start').textContent = "";
+	document.getElementById('courseDetails_end').textContent = "";
+	document.getElementById('courseDetails_price').textContent = "";
+	document.getElementById('listOptionsHeader').style.display = 'block';
+		resetCourseList();
     const selectedPora = event.target.value;
     const selectedLevel = document.querySelector('input[name="level"]:checked').value;
     const selectedType = document.querySelector('input[name="courseType"]:checked').value;
     const selectedTryb = document.querySelector('input[name="courseTryb"]:checked').value;
+	
 
     const filteredCourses = courses.filter(course => course.Type === selectedType && course.Level === selectedLevel && course.Tryb === selectedTryb && course.Pora === selectedPora);
     displayCourses(filteredCourses);
-
-    document.getElementById('listOptionsHeader').style.display = 'block';
 }
 
 function displayCourses(courses) {
     resetCourseList();
+	resetCourseDetails();
+
     const courseListContainer = document.getElementById('courseList');
 
     const selectElement = document.createElement('select');
@@ -638,7 +847,7 @@ function displayCourses(courses) {
     selectElement.onchange = function() {
         const selectedCourseValue = selectElement.value;
         const [courseStart, courseName] = selectedCourseValue.split('_');
-        displayCourseDetails(courseStart, courseName);
+		resetCourseDetails();
     };
 
     const defaultOption = document.createElement('option');
@@ -650,43 +859,47 @@ function displayCourses(courses) {
 
     courses.forEach(course => {
         const optionElement = document.createElement('option');
-        const optionValue = `${course.Start}_${course.Name}`;
+        const optionValue = `${course.Start}${course.Name}`;
         optionElement.value = optionValue;
         optionElement.textContent = `${course.Start} - ${course.Name}`;
         selectElement.appendChild(optionElement);
     });
-
     courseListContainer.appendChild(selectElement);
 }
 
-function displayCourseDetails(courseStart, courseName) {
-    const course = courses.find(course => course.Start === courseStart && course.Name === courseName);
-    if (!course) return;
+// function displayCourseDetails(courseStart, courseName) {
+//     const course = courses.find(course => course.Start === courseStart && course.Name === courseName);
+//     if (!course) return;
 
-    let courseTypeName = "";
-    if (course.Type === "O") {
-        courseTypeName = "Ogólny";
-    } else if (course.Type === "K") {
-        courseTypeName = "Konwersacje";
-    } else if (course.Type === "N") {
-        courseTypeName = "Norskprove";
-    }
+//     let courseTypeName = "";
+//     if (course.Type === 1) {
+//         courseTypeName = "Ogólny";
+//     } else if (course.Type == 2) {
+//         courseTypeName = "Konwersacje";
+//     } else if (course.Type == 3) {
+//         courseTypeName = "Norskprove";
+//     }
 
-    const courseDetailsHTML = `
-        <p><strong>Nazwa kursu:</strong> ${course.Name}</p>
-        <p><strong>Typ kursu:</strong> ${courseTypeName}</p>
-        <p><strong>Poziom:</strong> ${course.Level}</p>
-        <p><strong>Tryb:</strong> ${course.Tryb}</p>
-        <p><strong>Pora dnia:</strong> ${course.Pora}</p>
-        <p><strong>Dni:</strong> ${course.Days}</p>
-        <p><strong>Liczba lekcji:</strong> ${course.Lnumber}</p>
-        <p><strong>Start:</strong> ${course.Start}</p>
-        <p><strong>Koniec:</strong> ${course.End}</p>
-        <p><strong>Cena:</strong> ${course.Price} zł</p>
-    `;
-    document.getElementById('courseDetails').innerHTML = courseDetailsHTML;
-    document.getElementById('additionalFields').style.display = 'block';
-}
+//     const courseDetailsHTML = `
+// 	<p><strong>Typ kursu:</strong> ${courseTypeName}</p>
+//        <p><strong>Poziom:</strong> ${course.Level}</p>   
+// 	     <p><strong>Tryb:</strong> ${course.Tryb}</p>
+// 		         <p><strong>Pora dnia:</strong> ${course.Pora}</p>
+// 	<p><strong>Nazwa kursu:</strong> ${course.Name}</p>
+//         <p><strong>Dni:</strong> ${course.Days}</p>
+//         <p><strong>Liczba lekcji:</strong> ${course.Lnumber}</p>
+//         <p><strong>Start:</strong> ${course.Start}</p>
+//         <p><strong>Koniec:</strong> ${course.End}</p>
+//         <p><strong>Cena:</strong> ${course.Price} zł</p>
+//     `;
+//     document.getElementById('courseDetails').innerHTML = courseDetailsHTML;
+//     document.getElementById('additionalFields').style.display = 'block';
+// }
+
+
+
+
+
 const submitButton = document.querySelector("#submitButton");
 
 
@@ -754,7 +967,7 @@ const faktura = document.querySelector('input[name="invoice"]').checked
 		course: courseSelection,
             firstName: firstName,
             lastName: lastName,
-			schoolid:1,
+			schoolid:3,
 			type: "guest",
 			email: email,
 			phone: phone,
@@ -796,3 +1009,20 @@ invoiceYes.addEventListener("change", function() {
         }
     }
 });
+
+// function updateNazwaFromRadios() {
+//     // Pobieramy wszystkie radiobuttony
+//     const radioButtons = document.querySelectorAll('input[type="radio"]');
+    
+//     // Dodajemy nasłuchiwanie na zmiany w radiobuttonach
+//     radioButtons.forEach(radio => {
+//         radio.addEventListener('input', () => {
+// 			document.getElementById('courseDetails_name').textContent = ""
+// 			document.getElementById('courseDetails_lnumbers').textContent = ""
+// 			document.getElementById('courseDetails_start').textContent = ""
+// 			document.getElementById('courseDetails_end').textContent = ""
+// 			document.getElementById('courseDetails_price').textContent = ""
+//         });
+//     })};
+// 	updateNazwaFromRadios()
+
