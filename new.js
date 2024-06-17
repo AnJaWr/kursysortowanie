@@ -956,7 +956,8 @@ function displayCourses (courses) {
       message.innerHTML = 'Uzupełnij poprawnie formularz'
       return
     }else (    
-      document.getElementById('additionalFields').innerHTML="<div>Dziekujemy za zapis, już wkrótce wyślemy ci login i hasło do Twojego konta w LangLion. Tam dokonasz opłaty za kurs. Vi sees!</div>"
+
+      document.getElementById("form_submitted").style.display = "block"
   )
 
     console.log(
@@ -1041,7 +1042,7 @@ function displayCourses (courses) {
 	formDiv.style.display = 'block' // Pokaż div
 	buttonSubscribe.style.display = 'block' // Pokaż div
 	buttonBack.style.visibility = 'hidden' // Pokaż div
-
+document.getElementById('form_submitted').style.display="none"
 	}}
 
   function handleButton_subscribe() {
