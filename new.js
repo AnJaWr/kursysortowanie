@@ -493,6 +493,27 @@ const courses = [
   }
 ]
 
+var data = {
+	kursant: {
+	  course: "",
+	  firstName: "",
+	  lastName: "",
+	  schoolid: 3,
+	  type: 'guest',
+	  email: "email",
+	  phone: "phone",
+	  faktura: "",
+	  nazwaFirmy: "", 
+	  adresFirmy: "",
+	  nip: "",
+	  adresFirmy: "",
+	  student: "student",
+	  uwagi: "",
+	  zgodaMarketingowa: "",
+	  zgodaSprzedazowa: "",
+	  zgodaUmowna: ""
+	}
+  }
 // Funkcje resetujące inne opcje i listy kursów
 function resetLevels () {
   document.getElementById('level').innerHTML = ''
@@ -537,7 +558,7 @@ uniqueTypes.forEach(type => {
 
     label.textContent = types[type]
     label.setAttribute('for', radio.id)
-    label.classList.add('typKursu', `typKursu-${type}`)
+    label.classList.add('courseType', `courseType_${type}`)
     label.addEventListener('click', () => {
       label.click()
       radio.checked = true
@@ -589,11 +610,14 @@ function handleTypeChange (event) {
 
   // Ustawienie klas CSS dla labeli
   const labelsCourseType = Array.from(
-    document.getElementsByClassName('typKursu')
+    document.getElementsByClassName('courseType')
   )
   labelsCourseType.forEach(label => {
     const radioId = label.getAttribute('for')
     const radio = document.getElementById(radioId)
+	const container = document.getElementById('formContainer-description')
+	const button = document.getElementById('button_subscribe')
+  const button_back = document.getElementById('button_back')
 
     if (!radio) {
       console.warn(`Nie znaleziono elementu input z id "${radioId}"`)
@@ -601,6 +625,24 @@ function handleTypeChange (event) {
     }
 
     if (radio.checked) {
+		// container.classList.remove("courseType_1")
+		// container.classList.remove("courseType_2")
+		// container.classList.remove("courseType_3")
+	//    container.classList.add(radioId)
+	if (radioId === "courseType_1" ){
+		button.style.setProperty('--button_border', '#EE9558');
+    button_back.style.setProperty('--button_border', '#EE9558');
+		container.style.setProperty('--container_background', '#FCE7DB');
+
+	} else if (radioId === "courseType_2" ){
+		button.style.setProperty('--button_border', '#734BBC');
+    button_back.style.setProperty('--button_border', '#734BBC'); 
+		container.style.setProperty('--container_background', '#eae4f5');}
+		else if (radioId === "courseType_3" ){
+      button_back.style.setProperty('--button_border', '#81e5cd'); 
+			button.style.setProperty('--button_border', '#81e5cd');
+			container.style.setProperty('--container_background', '#caf4e8');}
+
       label.classList.add('checked')
       label.classList.remove('unchecked')
     } else {
@@ -608,6 +650,7 @@ function handleTypeChange (event) {
       label.classList.remove('checked')
     }
   });
+document.getElementById('button_subscribe').style.visibility ="hidden"
 
 }
 
@@ -654,6 +697,7 @@ function handleLevelChange (event) {
     singleTrybInput.checked = true
     handleTrybChange({ target: singleTrybInput })
   }
+document.getElementById('button_subscribe').style.visibility ="hidden"
 }
 
 function handleTrybChange (event) {
@@ -702,6 +746,8 @@ function handleTrybChange (event) {
     singlePoraInput.checked = true
     handlePoraChange({ target: singlePoraInput })
   }
+ document.getElementById('button_subscribe').style.visibility ="hidden"
+ document.getElementById('listOptionsHeader').style.display="none"
 }
 
 function handlePoraChange (event) {
@@ -729,8 +775,9 @@ function handlePoraChange (event) {
     ? selectedPora
     : ''
   clearCourseDetails()
-
+document.getElementById('button_subscribe').style.visibility ="hidden"
   displayCourses(filteredCourses)
+
 }
 
 function displayCourses (courses) {
@@ -752,15 +799,37 @@ function displayCourses (courses) {
         
             // Sprawdź, czy wybrana wartość jest różna od pustej
             if (selectedValue !== '') {
-              additionalFieldsDiv.style.display = 'block' // Pokaż div
+		document.getElementById('button_subscribe').style.visibility ="visible"
+            //   additionalFieldsDiv.style.display = 'block' // Pokaż div
             } else {
               additionalFieldsDiv.style.display = 'none' // Ukryj div
             }
     resetCourseDetails()
+    const data = {
+      kursant: {
+        course: courseSelection,
+        firstName: firstName,
+        lastName: lastName,
+        schoolid: 3,
+        type: 'guest',
+        email: email,
+        phone: phone,
+        faktura: faktura,
+        nazwaFirmy: daneFaktury,
+        adresFirmy: adresFirmy,
+        nip: nip,
+        adresFirmy: adresFirmy,
+        student: student,
+        uwagi: uwagi,
+        zgodaMarketingowa: zgodaMarketingowa,
+        zgodaSprzedazowa: zgodaSprzedazowa,
+        zgodaUmowna: zgodaUmowna
+      }
+      }
 
 
-
-
+     return data
+     
   }
 
   const defaultOption = document.createElement('option')
@@ -840,6 +909,7 @@ function displayCourses (courses) {
     }
 
     // Dodanie nasłuchiwania zdarzeń dla elementów radio
+    return kurs
   }
 
   // Funkcja do resetowania szczegółów kursu
@@ -904,8 +974,7 @@ function displayCourses (courses) {
     const adresFirmy = document.getElementById('adresFirmy').value
     const student = document.getElementById('student').checked
     const uwagi = document.getElementById('remarks').value
-    const zgodaMarketingowa =
-      document.getElementById('marketingConsent').checked
+    const zgodaMarketingowa = document.getElementById('marketingConsent').checked
     const zgodaSprzedazowa = document.getElementById('salesConsent').checked
     const zgodaUmowna = document.getElementById('contractConsent').checked
 
@@ -961,3 +1030,35 @@ function displayCourses (courses) {
 
 
   })
+  function handleButton_back() {
+	const buttonSubscribe = document.getElementById("button_subscribe");
+	const additionalFieldsDiv = document.getElementById("additionalFields");
+	const formDiv = document.getElementById("formContainer-form");
+	const buttonBack = document.getElementById("button_back");
+	
+	buttonBack.onclick = function () {
+	additionalFieldsDiv.style.display = 'none' // Pokaż div
+	formDiv.style.display = 'block' // Pokaż div
+	buttonSubscribe.style.display = 'block' // Pokaż div
+	buttonBack.style.visibility = 'hidden' // Pokaż div
+
+	}}
+
+  function handleButton_subscribe() {
+const buttonSubscribe = document.getElementById("button_subscribe");
+const additionalFieldsDiv = document.getElementById("additionalFields");
+const formDiv = document.getElementById("formContainer-form");
+const buttonBack = document.getElementById("button_back");
+
+buttonSubscribe.onclick = function () {
+additionalFieldsDiv.style.display = 'block' // Pokaż div
+formDiv.style.display = 'none' // Pokaż div
+buttonSubscribe.style.display = 'none' // Pokaż div
+buttonBack.style.visibility = 'visible' // Pokaż div
+
+
+
+}}
+handleButton_subscribe();
+handleButton_back();
+console.log("Dane to"+ data)

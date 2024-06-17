@@ -1,7 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap');
-body{
+* {
     font-family: "Poppins", sans-serif;
 }
+
+:root {
+    /* --blue: #6495ed;
+    --white: #faf0e6; 
+
+
+
+    --orange: #EE9558;
+    --orange-light: #FCE7DB;
+    
+    --purple: #734BBC;   
+    --purple-light: #eae4f5;
+    
+    --pink: #DD6EB2;
+    --pink-light: #fbd8e2;
+    
+    --greey-light: #f3f3f3;
+--mint-light: #caf4e8;
+    --mint: #81e5cd;
+--grey: #EDECE7;
+ --raspberry:   #e64778; */
+ --container_background:  #f3f3f3;
+ --button_border: #8b8b8b;
+  }
+
+
 #formContainer{
     width: 100%;
     display: flex;
@@ -17,14 +43,16 @@ body{
     position: fixed;
         top: 0;
         right:0;
-        background-color: #CAF4E8;
-        padding:15px;
+        background-color: var(--container_background);
+        padding:25px; border-style: none;
+    border-radius: 25px;
       
    }
 #additionalFields {
     margin-top: 20px;
     width: 50%;
     padding: 15px;
+   
 }
 
 .red{
@@ -34,7 +62,7 @@ h4{
     font-family: "Space Grotesk", sans-serif;
 }
 
-.typKursu{
+.courseType{
     margin:0;
     display:flex;
     width: 60%;
@@ -51,27 +79,27 @@ h4{
     justify-content: space-between;
 }
 
-.typKursu-1{
+.courseType_1{
 background-color: #FCE7DB;
 }
-.typKursu-2{
+.courseType_2{
     background-color: #caf4e8;  
 }
-.typKursu-3{
+.courseType_3{
     background-color: #eae4f5;
 }
 
-.typKursu-1.checked{
+.courseType_1.checked{
     background-color: #EE9558;
     color:white;
     font-weight: 600;
     }
-    .typKursu-2.checked{
+    .courseType_2.checked{
         background-color: #81e5cd;  
         color:white;
         font-weight: 600;
     }
-    .typKursu-3.checked{
+    .courseType_3.checked{
         background-color: #734BBC;
         color:white;
         font-weight: 600;
@@ -87,4 +115,19 @@ background-color: #FCE7DB;
    }
 #courseList{
     width: 60%;
+}
+#formAlert{
+    color:red;
+    font-weight: bold;
+}
+#button_back,
+#button_subscribe{
+    padding: 10px 20px;   
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--button_border);
+    color:var(--button_border);
+background-color: transparent;
+    border-radius: 30px;
+    font-size:1.1rem;
 }
