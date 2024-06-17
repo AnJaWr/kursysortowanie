@@ -10,7 +10,7 @@
 
 <body>
     <div id="formContainer">
-        <div id="formContainer-form" class="formContainer-form">
+        <div id="formContainer-form" class="formContainer formContainer-form">
             <h4 id="typeOptionsHeader">Jaki rodzaj kursu Cię interesuje?</h4>
             <div id="radioContainer">
             </div>
@@ -25,16 +25,28 @@
             <div id="tryb"> </div>
 
             <h4 id="poraOptionsHeader" style="display:none">Wybierz porę kursu</h4>
-            <h4 id="onePora" class="one pora" style="display:none">Kursy na tym poziomie odbywają się obecnie tylko
-                wieczorami
-            </h4>
-            <div id="pora"> </div>
-
+            <div id="pora"></div>
             <h4 id="listOptionsHeader" style="display:none">Wybierz swój kurs, wypełnij formularz, zapisz się</h4>
             <div id="courseList"></div>
-
-
-            <div id="additionalFields" style="display: none;">
+        </div>
+           
+  
+        <div id="formContainer-description" class="formContainer formContainer-description">
+            <div id="onlyOne" class="hidden"></div>
+            <div id="courseDetails">
+                <h2>Twój kurs norweskiego</h2>
+                <p><strong>Typ kursu: </strong> <span id="courseDetails_type"></span></p>
+                <p><strong>Poziom: </strong><span id="courseDetails_level"></span></p>
+                <p><strong>Tryb: </strong><span id="courseDetails_tryb"></span></p>
+                <p><strong>Pora dnia: </strong><span id="courseDetails_pora"></span></p>
+                <p><strong>Nazwa kursu: </strong> <span id="courseDetails_name"></span></p>
+                <p><strong>Liczba lekcji: </strong><span id="courseDetails_lnumbers"></span></p>
+                <p><strong>Start: </strong><span id="courseDetails_start"></span></p>
+                <p><strong>Koniec: </strong><span id="courseDetails_end"></span> </p>
+                <p><strong>Cena: </strong><span id="courseDetails_price"></span></p>
+            </div>
+        </div>
+ <div id="additionalFields" style="display: none;">
                 <h2>Uzupełnij dane </h2>
                 <!-- Dodatkowe pola -->
                 <label for="firstName">Imię:<span class="red">*</span></label>
@@ -64,7 +76,6 @@
                         style="display:none">*</span></label><br>
                 <textarea id="adresFirmy" name="adresFirmy" rows="4" cols="50" required="false"></textarea><br>
 
-
                 <h5>Czy jesteś studentem?</h5>
                 <input type="checkbox" id="student" name="student" value="tak">
                 <label for="studentYes">Tak</label>
@@ -85,24 +96,10 @@
                     <div>
                         <button id="submitButton">Zapisuję się na kurs</button>
                     </div>
-                </div></div></div>
-                <div class="form Container formContainer-description" class="formContainer formContainer-description">
-                    <div id="onlyOne" class="hidden"></div>
-                    <div id="courseDetails">
-                        <h2>Twój kurs norweskiego</h2>
-                        <p><strong>Typ kursu: </strong> <span id="courseDetails_type"></span></p>
-                        <p><strong>Poziom: </strong><span id="courseDetails_level"></span></p>
-                        <p><strong>Tryb: </strong><span id="courseDetails_tryb"></span></p>
-                        <p><strong>Pora dnia: </strong><span id="courseDetails_pora"></span></p>
-                        <p><strong>Nazwa kursu: </strong> <span id="courseDetails_name"></span></p>
-                        <p><strong>Liczba lekcji: </strong><span id="courseDetails_lnumbers"></span></p>
-                        <p><strong>Start: </strong><span id="courseDetails_start"></span></p>
-                        <p><strong>Koniec: </strong><span id="courseDetails_end"></span> </p>
-                        <p><strong>Cena: </strong><span id="courseDetails_price"></span></p>
-                    </div>
                 </div>
             </div>
-            <script src="new.js?v1"></script>
+    </div>
+    <script src="new.js?v1"></script>
 </body>
 
 </html>

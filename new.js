@@ -550,11 +550,11 @@ uniqueTypes.forEach(type => {
 })
 
 function handleTypeChange (event) {
-  resetLevels()
-  resetTrybs()
-  resetPora()
-  resetCourseList()
-
+  resetLevels();
+  resetTrybs();
+  resetPora();
+  resetCourseList();
+  clearCourseDetails()
   const selectedType = event.target.value
 
   document.getElementById('courseDetails_type').textContent =
@@ -579,7 +579,10 @@ function handleTypeChange (event) {
     .join('')
 
   document.getElementById('level').innerHTML = levelOptions
-  document.getElementById('levelOptionsHeader').style.display = 'block'
+  document.getElementById('levelOptionsHeader').style.display = 'block';
+  document.getElementById('trybOptionsHeader').style.display ="none";
+  document.getElementById('poraOptionsHeader').style.display ="none";
+  document.getElementById('listOptionsHeader').style.display ="none";
   document.getElementById('courseDetails_level').textContent = ''
   document.getElementById('courseDetails_tryb').textContent = ''
   document.getElementById('courseDetails_pora').textContent = ''
@@ -604,7 +607,8 @@ function handleTypeChange (event) {
       label.classList.add('unchecked')
       label.classList.remove('checked')
     }
-  })
+  });
+
 }
 
 function handleLevelChange (event) {
@@ -701,7 +705,7 @@ function handleTrybChange (event) {
 }
 
 function handlePoraChange (event) {
-  document.getElementById('listOptionsHeader').style.display = 'block'
+  document.getElementById('listOptionsHeader').style.display = 'block';
   resetCourseList()
   const selectedPora = event.target.value
   const selectedLevel = document.querySelector(
